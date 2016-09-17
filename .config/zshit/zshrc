@@ -1,0 +1,43 @@
+#!/bin/zsh
+### vim: ft=sh:fdm=marker:et:sw=2
+
+for r in $HOME/.config/zsh/[0-5]*.zsh; do
+    . $r
+done
+. $HOME/.config/zsh/10-syntax.zsh
+
+stty intr    "^C"          2> /dev/null
+stty erase   "^?"          2> /dev/null
+stty eof     "^D"          2> /dev/null
+stty start   "undef"       2> /dev/null
+stty stop    "undef"       2> /dev/null
+stty susp    "^Z"          2> /dev/null
+stty rprnt   "^R"          2> /dev/null
+stty werase  "^W"          2> /dev/null
+stty lnext   "^B"          2> /dev/null
+stty flush   "undef"       2> /dev/null
+stty time    0             2> /dev/null
+stty min     0             2> /dev/null
+stty line    6             2> /dev/null
+stty speed   4000000       &> /dev/null
+
+autoload edit-command-line
+zle -N edit-command-line
+
+prompt_japh_setup
+zstyle ':vcs_info:*'              actionformats \
+    " %s%F{ma}%F{ye}%F{ma}[%F{green}%b%F{ye}|%F{red}%a%F{[ma}]%f "
+zstyle ':vcs_info:*'              formats       \
+	" %s%F{ma}%F{ye}%F{240}⸢%F{148}%b%F{240}｣%f"
+zstyle ':vcs_info:cvs:*'          formats       \
+	" %s%F{ma}%F{ye}-%F{ma}[%F{green}%r%F{ma}]%f"
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat \
+	"%b%F{red}:%F{ye}%r"
+
+compdef     _gnu_generic ln file vnstati lscpu lsb_release
+
+PATH="/home/ritzr0czka/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/ritzr0czka/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/ritzr0czka/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/ritzr0czka/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/ritzr0czka/perl5"; export PERL_MM_OPT;

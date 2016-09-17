@@ -1,0 +1,22 @@
+! Colors
+#include "/home/ritzr0czka/.x/termcolors/nancy.Xresources"
+
+! Fonts
+#include "/home/ritzr0czka/.x/termfonts/tewi"
+
+!-- General Settings --
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.hinting:                false
+Xft.rgba:                   rgb
+Xft.autohint:               false
+Xft.hintstyle:              hintnone
+Xft.lcdfilter: lcddefault
+
+! URxvt Settings --
+URxvt*cursorUnderline:      true
+URxvt.scrollBar:            false
+URxvt.lineSpace:            3
+URxvt*cursorBlink:          false
+URxvt.internalBorder:       25
+URxvt.geometry: 	    	109x23
